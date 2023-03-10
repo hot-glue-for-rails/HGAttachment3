@@ -1,6 +1,6 @@
 class ImagesController < ApplicationController
   # regenerate this controller with
-  # rails generate hot_glue:scaffold Image --include='name:avatar' --gd --attachments='avatar'
+  # rails generate hot_glue:scaffold Image --include='name:avatar' --gd --attachments='avatar{thumb||direct}'
 
   helper :hot_glue
   include HotGlue::ControllerHelper

@@ -94,3 +94,5 @@ gem "kaminari", "~> 1.2"
 
 gem "image_processing", "~> 1.12"
 gem "hot-glue", path: "/Users/jason/Work/Hot_Glue/hot-glue-private"
+
+gem "aws-sdk-s3", "~> 1.119"
