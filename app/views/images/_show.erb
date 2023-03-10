@@ -1,4 +1,7 @@
-<div class='col-sm-1 image--name'> <%= image.name %></div>
+<div class='col-sm-5 image--name'> <%= image.name %></div>
+<div class='col-sm-5 image--avatar'> <%= image.avatar.attached? && image.avatar.variable? ? image_tag(image.avatar.variant(:thumb)) : '' %></div>
+
+
 
 
 

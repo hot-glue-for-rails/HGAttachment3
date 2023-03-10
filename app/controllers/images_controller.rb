@@ -1,6 +1,6 @@
 class ImagesController < ApplicationController
   # regenerate this controller with
-  # rails generate hot_glue:scaffold Image --include='name' --gd
+  # rails generate hot_glue:scaffold Image --include='name:avatar' --gd --attachments='avatar'
 
   helper :hot_glue
   include HotGlue::ControllerHelper
@@ -8,7 +8,8 @@ class ImagesController < ApplicationController
   
   before_action :load_image, only: [:show, :edit, :update, :destroy]
   after_action -> { flash.discard }, if: -> { request.format.symbol == :turbo_stream }
-   
+  
+  
   def load_image
     @image = Image.find(params[:id])
   end
@@ -31,6 +32,7 @@ class ImagesController < ApplicationController
  
     modified_params = modify_date_inputs_on_params(image_params.dup)
     @image = Image.create(modified_params)
+
     if @image.save
       flash[:notice] = "Successfully created #{@image.name}"
       load_all_images
@@ -74,7 +76,7 @@ class ImagesController < ApplicationController
   end
 
   def image_params
-    params.require(:image).permit([:name])
+    params.require(:image).permit([:name, :avatar])
   end
 
   def namespace

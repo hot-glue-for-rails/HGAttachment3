@@ -4,13 +4,12 @@ describe 'interaction for ImagesController' do
   include HotGlue::ControllerHelper
   include ActionView::RecordIdentifier
 
-    #HOTGLUE-SAVESTART
+  #HOTGLUE-SAVESTART
   #HOTGLUE-END
   
 
   let!(:image1) {create(:image , name: FFaker::Movie.title )}
-   
-
+  
   describe "index" do
     it "should show me the list" do
       visit images_path
